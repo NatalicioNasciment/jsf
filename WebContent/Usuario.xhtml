@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<h:body>
+	<h:form>
+		<h:commandLink action="AjudaUsuario?faces-redirect=true"
+			value="Link de ajuda" id="botaoLinkAjuda">
+			<f:actionListener binding="#{registroClickBotaoListener}" />
+		</h:commandLink>
+		<p />
+			Nome: <h:inputText value="#{usuarioBean.usuario.nome}" />
+		<br />
+			Login: <h:inputText value="#{usuarioBean.usuario.login}" />
+		<br />
+			Senha: <h:inputSecret value="#{usuarioBean.usuario.senha}" />
+		<br />
+		<h:commandButton value="Incluir" action="#{usuarioBean.incluir}"
+			actionListener="#{usuarioBean.verificarInclusao}" id="BotaoIncluir">
+			<f:actionListener binding="#{registroClickBotaoListener}" />
+		</h:commandButton>
+	</h:form>
+
+	<h:form>
+		<ui:repeat var="usuario" value="#{usuarioBean.usuariosFiltrados}">
+			<ul>
+				<li>#{usuario.nome} - #{usuario.login} - #{usuario.senha}- <h:commandLink
+						value="Excluir" action="#{usuarioBean.excluir}">
+						<f:setPropertyActionListener value="#{usuario}"
+							target="#{usuarioBean.usuarioSelecionado}" />
+					</h:commandLink>
+				</li>
+			</ul>
+		</ui:repeat>
+	</h:form>
+
+	<h:form>
+		Pesquisa por usuario: <h:inputText
+			value="#{usuarioBean.usuarioPesquisa}"
+			valueChangeListener="#{usuarioBean.usuarioPesquisaAlterada}"
+			onchange="submit()" />
+		<h:commandButton action="#{usuarioBean.pesquisar}" value="Pesquisar"
+			onchange="submit()" />
+	</h:form>
+</h:body>
+</html>

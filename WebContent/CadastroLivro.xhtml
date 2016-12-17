@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<h:body>
+	<h:form id="frm">
+		<h:messages layout="list" infoStyle="color:green"
+			errorStyle="color:red" globalOnly="true" />
+		<h:panelGrid columns="2">
+			<f:facet name="reader">
+			Cadastro de Livros
+		</f:facet>
+
+			<h:outputLabel value="Titulo : " for="titulo" />
+			<h:panelGroup>
+				<h:inputText value="#{cadastroLivrosBean.titulo}" id="titulo" />
+				<h:message for="titulo" />
+			</h:panelGroup>
+
+			<h:outputLabel value="Autor : " for="autor" />
+			<h:panelGroup>
+				<h:inputText value="#{cadastroLivrosBean.autor}" id="autor" />
+				<h:message for="autor" />
+			</h:panelGroup>
+
+			<h:outputLabel value="Descrição : " for="descricao" />
+			<h:panelGroup>
+				<h:inputText value="#{cadastroLivrosBean.descricao}" id="descricao" />
+				<h:message for="descricao" />
+			</h:panelGroup>
+
+			<h:outputLabel value="Assunto : " for="assunto" />
+			<h:panelGroup>
+				<h:inputText value="#{cadastroLivrosBean.assunto}" id="assunto" />
+				<h:message for="assunto" />
+			</h:panelGroup>
+
+			<h:outputLabel />
+			<h:panelGroup>
+				<h:commandButton value="Cadastrar"
+					action="#{cadastroLivrosBean.cadastrar}"/>
+			</h:panelGroup>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Consulta de clientes</title>
+
+	<style>
+.tabela {
+	margin-left: 280px;
+	width: 800px;
+	font-family: Arial;
+	font-size: 12px;
+	text-align: center;
+}
+
+.cabecalho {
+	color: white;
+	background-color: black;
+}
+
+.linhaUm {
+	text-align: center;
+	background-color: #CCCCCC;
+}
+
+.linhaDois {
+	background-color: #f2f2f2;
+}
+
+.posicaoImagem {
+	/* 	margin-left: 220px; */
+	padding-left: 220px;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form id="frm">
+		<h:commandButton value="Consultar"
+			action="#{consultaClienteBean.consultar}" />
+		<h:commandButton value="Salvar" action="#{consultaClienteBean.salvar}" />
+
+
+		<h:dataTable value="#{consultaClienteBean.clientes}" var="item"
+			border="0" rendered="#{not empty consultaClienteBean.clientes}"
+			styleClass="tabela" headerClass="cabecalho"
+			rowClasses="linhaUm, linhaDois">
+			<h:column>
+				<f:facet name="header">
+						Código
+					</f:facet>
+
+				<!--<h:outputText value="#{item.codigo}"/> -->
+				<h:inputText value="#{item.codigo}" size="2" />
+			</h:column>
+
+			<h:column id="colunaNome">
+				<f:facet name="header">
+						Nome
+					</f:facet>
+				<h:outputLink value="http://google.com.br/search?q=#{item.nome}">
+					<h:outputText value="#{item.nome}" />
+				</h:outputLink>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+						Cidade
+				</f:facet>
+				<h:outputText value="#{item.cidade}" />
+				<h:outputLink value="adicionar link google imagens#{item.cidade}">
+					<h:graphicImage value="img/img.png" styleClass="posicaoImagem" />
+				</h:outputLink>
+			</h:column>
+
+		</h:dataTable>
+
+	</h:form>
+</h:body>
+</html>

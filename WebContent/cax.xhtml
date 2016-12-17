@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+	<h:form id="frm">
+		<h:messages layout="list" errorStyle="color: red"
+			warnStyle="color:orange" infoStyle="color: green" globalOnly="true" showDetail="true"/>
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+			Cadastro novo usuário
+		</f:facet>
+			<h:outputLabel value="Nome: " for="nome" />
+			<h:panelGroup>
+				<h:inputText value="#{x.nome}" id="nome" />
+				<h:message for="nome" />
+			</h:panelGroup>
+			<h:outputLabel value="Email: " for="email" />
+			<h:inputText value="#{x.email}" id="email" />
+
+			<h:outputLabel value="Senha: " for="senha" />
+			<h:inputSecret value="#{x.senha}" id="senha" />
+
+			<h:outputLabel />
+			<h:commandButton value="Cadastrar" action="#{x.cadastrar}" />
+
+		</h:panelGrid>
+	</h:form>
+</body>
+</html>

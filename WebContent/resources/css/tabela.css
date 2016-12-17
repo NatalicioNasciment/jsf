@@ -1,0 +1,27 @@
+@CHARSET "ISO-8859-1";
+.tabela {
+	margin-left: 280px;
+	width: 800px;
+	font-family: Arial;
+	font-size: 12px;
+	text-align: center;
+}
+
+.cabecalho {
+	color: white;
+	background-color: black;
+}
+
+.linhaUm {
+	text-align: center;
+	background-color: #CCCCCC;
+}
+
+.linhaDois {
+	background-color: #f2f2f2;
+}
+
+.posicaoImagem {
+	/* 	margin-left: 220px; */
+	padding-left: 220px;
+}
